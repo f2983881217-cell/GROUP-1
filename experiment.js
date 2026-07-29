@@ -1,4 +1,4 @@
-﻿var SHEET_URL='https://script.google.com/macros/s/AKfycbz7i4cucyMfYje-y_3pdSQa9HZ9Q_QWfvDPElhKQjOhJqccTeupFWie8eA98YhUJ2M/exec';
+var SHEET_URL='https://script.google.com/macros/s/AKfycbz7i4cucyMfYje-y_3pdSQa9HZ9Q_QWfvDPElhKQjOhJqccTeupFWie8eA98YhUJ2M/exec';
 var jsPsych = initJsPsych({on_finish:function(){
   // Google Sheetsに自動送信
   // pid/spotを抽出して全データに付与
@@ -133,7 +133,7 @@ TL.push({type:jsPsychHtmlKeyboardResponse,
     var h='<div style="max-width:600px;margin:20px auto;text-align:left"><h3>事後アンケート</h3><p>以下の言葉の中で、実験前にすでに<strong>読み方を知っていた</strong>ものにチェックを入れてください。</p><p style="font-size:13px;color:#666">Please check the words you already knew how to read before the experiment.</p>';
     for(var i=0;i<words.length;i++){h+='<label style="display:block;margin:8px 0;font-size:16px"><input type="checkbox" class="pq-cb" value="'+i+'"> '+words[i]+'</label>';}
     h+='<br><button onclick="submitPostQ()" style="padding:10px 30px;font-size:16px;cursor:pointer;border:1px solid #ccc;border-radius:6px;background:#fff">送信 ／ Submit</button></div>';
-    window.submitPostQ=function(){var cb=document.querySelectorAll('.pq-cb');var kn=[];cb.forEach(function(c){if(c.checked)kn.push(parseInt(c.value));});jsPsych.finishTrial({known_words:kn.join(',')});};
+    window.submitPostQ=function(){var cb=document.querySelectorAll('.pq-cb');var kn=[];cb.forEach(function(c){if(c.checked)kn.push(parseInt(c.value));});jsPsych.finishTrial({known_words:kn.join(','),phase:'post_q'});};
     return h;
   },
   choices:"NO_KEYS",trial_duration:null
